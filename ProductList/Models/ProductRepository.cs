@@ -33,5 +33,17 @@ namespace ProductList.Models
         new Product { Id = 11, Name = "Product 11", CategoryId = 5 },
     };
             }
+        public static List<Supplier> GetSuppliers()
+        {
+            return new List<Supplier>
+    {
+        new Supplier { Id = 1, Name = "Supplier A" },
+        new Supplier { Id = 2, Name = "Supplier B" },
+        new Supplier { Id = 3, Name = "Supplier C" },
+    };
         }
+
+
+
     }
+}

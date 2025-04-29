@@ -11,6 +11,7 @@ namespace ProductList.Controllers
             {
             var viewModel = new ProductViewModel
                 {
+                Suppliers = ProductRepository.GetSuppliers(),
                 Categories = ProductRepository.GetCategories(),
                 Products = ProductRepository.GetProducts(),
                 };
