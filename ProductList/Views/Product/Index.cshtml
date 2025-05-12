@@ -223,13 +223,15 @@
 
                             $("#productDropdown").prop("disabled", true);
 
+                            $("#categoryDropdown").prop("disabled", true);
+
                             $("#categoryDropdown").val("");
 
                             $("#productDropdown").empty().append($("<option></option>").val("").text("Select a product")).prop("disabled", true);
 
                             $("#productNameTextbox").prop("disabled", true);
 
-                            $("#categoryDropdown").focus();
+                            $("#supplierDropdown").focus();
 
                             // ----------------------------------------------------------------------
                             // RAW DATA DEMO CODE ---- Not part of the project!!!! ----
@@ -258,7 +260,11 @@
                 $("#productDropdown").prop("disabled", true);
                 $("#productNameTextbox").prop("disabled", true);
                 $("#serialTextbox").prop("disabled", true);
+                $("#supplierDropdown").prop("disabled", true);
+                $("#addProductButton").prop("disabled", true);
+
                 $(".btn-success").prop("disabled", true);
+
 
                 var currentRow = $(this).closest("tr");
                 currentRow.find(":input").not(":disabled").prop("disabled", true);
@@ -302,8 +308,15 @@
                     $(".btn-success").not(this).prop("disabled", false);
                     $(this).prop("disabled", false);
 
+
+                   
+                    $("#addProductButton").prop("disabled", true);
+                    $("#supplierDropdown").prop("disabled", false);
+
+                   
+
                     // Save changes
-                    $(document).on("click", ".btn-save", function () {
+                   /* $(document).on("click", ".btn-save", function () {
                         var row = $(this).closest("tr");
                         var value = row.find(".valueTextbox").val();
                         var serial = row.find(".serialTextbox").val();
@@ -314,12 +327,12 @@
                         row.find(".editable").prop("disabled", true);
                         row.find(".btn-edit").prop("disabled", false);
                         $(this).prop("disabled", true);
-                    });
+                    });*/
 
                     // HTML Load controls disabled.
                     // -------------------------------------------
                     $(".btn-danger").prop("disabled", false);
-                    $("#categoryDropdown").prop("disabled", false)
+                    $("#categoryDropdown").prop("disabled", true)
 
                     $("form :input:not(.row-edit :input)").not(":disabled").removeClass("disabled").prop("disabled", false);
 
@@ -328,6 +341,7 @@
 
         });
         });
+        $("#supplierDropdown").focus();
 
 
         // SUPPLIER DROPDOWN
@@ -395,15 +409,15 @@ $("#productDropdown").change(function () {
 
 
         // Enable textboxes on Edit
-        $(document).on("click", ".btn-edit", function () {
+       /* $(document).on("click", ".btn-edit", function () {
             var row = $(this).closest("tr");
             row.find(".editable").prop("disabled", false);
             row.find(".btn-save").prop("disabled", false);
             $(this).prop("disabled", true);
-        });
+        });*/
 
         // Save changes
-        $(document).on("click", ".btn-save", function () {
+       /* $(document).on("click", ".btn-save", function () {
             var row = $(this).closest("tr");
             var value = row.find(".valueTextbox").val();
             var serial = row.find(".serialTextbox").val();
@@ -414,16 +428,30 @@ $("#productDropdown").change(function () {
             row.find(".editable").prop("disabled", true);
             row.find(".btn-edit").prop("disabled", false);
             $(this).prop("disabled", true);
-        });
+        });*/
 
         // Delete row
-        $(document).on("click", ".btn-delete", function () {
-            $(this).closest("tr").remove();
+        function deleteRowById(targetId) {
+            $("#productTable tbody tr").each(function () {
+                var rowId = $(this).find("td:first").text(); // Get the first td text (the ID)
+
+                if (parseInt(rowId) === parseInt(targetId)) {
+                    $(this).remove(); // Remove this row
+
+                    return false; // Exit the loop
+                }
+            });
+        }
+
+        $(document).on("click", ".delete-btn", function () {
+            var targetId = $(this).closest("tr").find("td:first").text(); // Get the ID from the row
+            deleteRowById(targetId);
+
         });
 
         // CHANGE
 
-        $(document).on("click", ".btn-success", function () {
+        /*$(document).on("click", ".btn-success", function () {
             var currentRow = $(this).closest("tr");
 
             // Extract values from the row
@@ -491,7 +519,7 @@ $("#productDropdown").change(function () {
                 // Revert SAVE button back to EDIT
                 $(this).text("EDIT").removeClass("btn-primary").addClass("btn-success");
             }
-        });
+        });*/
 
 
        
