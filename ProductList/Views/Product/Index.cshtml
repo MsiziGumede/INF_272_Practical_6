@@ -315,19 +315,7 @@
 
                    
 
-                    // Save changes
-                   /* $(document).on("click", ".btn-save", function () {
-                        var row = $(this).closest("tr");
-                        var value = row.find(".valueTextbox").val();
-                        var serial = row.find(".serialTextbox").val();
-
-                        row.find("input[name*='Value']").val(value);
-                        row.find("input[name*='Serial']").val(serial);
-
-                        row.find(".editable").prop("disabled", true);
-                        row.find(".btn-edit").prop("disabled", false);
-                        $(this).prop("disabled", true);
-                    });*/
+                    
 
                     // HTML Load controls disabled.
                     // -------------------------------------------
@@ -408,27 +396,7 @@ $("#productDropdown").change(function () {
         });
 
 
-        // Enable textboxes on Edit
-       /* $(document).on("click", ".btn-edit", function () {
-            var row = $(this).closest("tr");
-            row.find(".editable").prop("disabled", false);
-            row.find(".btn-save").prop("disabled", false);
-            $(this).prop("disabled", true);
-        });*/
-
-        // Save changes
-       /* $(document).on("click", ".btn-save", function () {
-            var row = $(this).closest("tr");
-            var value = row.find(".valueTextbox").val();
-            var serial = row.find(".serialTextbox").val();
-
-            row.find("input[name*='Value']").val(value);
-            row.find("input[name*='Serial']").val(serial);
-
-            row.find(".editable").prop("disabled", true);
-            row.find(".btn-edit").prop("disabled", false);
-            $(this).prop("disabled", true);
-        });*/
+        
 
         // Delete row
         function deleteRowById(targetId) {
@@ -449,77 +417,7 @@ $("#productDropdown").change(function () {
 
         });
 
-        // CHANGE
-
-        /*$(document).on("click", ".btn-success", function () {
-            var currentRow = $(this).closest("tr");
-
-            // Extract values from the row
-            var categoryId = currentRow.find("select").eq(0).val();
-            var productId = currentRow.find("select").eq(1).val();
-            var productName = currentRow.find("input[type=text]").eq(0).val();
-            var serial = currentRow.find("input[type=text]").eq(1).val();
-
-            // Populate input fields for editing
-            $("#categoryDropdown").val(categoryId).prop("disabled", false).trigger("change");
-
-            setTimeout(function () {
-                $("#productDropdown").val(productId).prop("disabled", false).trigger("change");
-            }, 300);
-
-            $("#productNameTextbox").val(productName).prop("disabled", false);
-            $("#serialTextbox").val(serial).prop("disabled", false);
-
-            // Store the row being edited
-            $("#addProductButton").data("editRow", currentRow);
-
-            // Change this button to "SAVE" mode
-            $(this).text("SAVE").removeClass("btn-success").addClass("btn-primary");
-        });
-
-        $(document).on("click", ".btn-primary", function () {
-            var editRow = $("#addProductButton").data("editRow");
-
-            if (editRow) {
-                // Get updated values from input fields
-                var updatedCategoryId = $("#supplierDropdown").val();
-                var updatedSupplierText = $("#supplierDropdown option:selected").text();
-
-                var updatedCategoryId = $("#categoryDropdown").val();
-                var updatedCategoryText = $("#categoryDropdown option:selected").text();
-
-                var updatedProductId = $("#productDropdown").val();
-                var updatedProductText = $("#productDropdown option:selected").text();
-
-                var updatedProductName = $("#productNameTextbox").val();
-                var updatedSerial = $("#serialTextbox").val();
-
-
-
-                // Update row values
-
-
-                editRow.find("select").eq(0).val(updatedCategoryId);
-                editRow.find("select").eq(1).find("option:selected").text(updatedCategoryText);
-
-                editRow.find("select").eq(0).val(updatedProductId);
-                editRow.find("select").eq(1).find("option:selected").text(updatedProductText);
-
-                editRow.find("input[type=text]").eq(0).val(updatedProductName);
-                editRow.find("input[type=text]").eq(1).val(updatedSerial);
-
-                // Clear inputs and reset state
-                $("#categoryDropdown").val("").prop("disabled", true);
-                $("#productDropdown").val("").prop("disabled", true);
-                $("#productNameTextbox").val("").prop("disabled", true);
-                $("#serialTextbox").val("").prop("disabled", true);
-
-                $("#addProductButton").removeData("editRow");
-
-                // Revert SAVE button back to EDIT
-                $(this).text("EDIT").removeClass("btn-primary").addClass("btn-success");
-            }
-        });*/
+        
 
 
        
