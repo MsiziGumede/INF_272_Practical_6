@@ -38,6 +38,8 @@ namespace ProductList.Controllers
             );
             }
 
+
+
         public ActionResult AddProduct(int productId, string productName)
             {
             // Here you can add the product to your data store or perform other actions

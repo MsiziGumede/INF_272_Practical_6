@@ -165,7 +165,7 @@
         // ----------------------------------------------------------------------
         // ADD BUTTON
         // ----------------------------------------------------------------------
-
+            var Row_ID = 1;
             $("#addProductButton").click(function () {
                 var categoryId = $("#categoryDropdown").val();
 
@@ -179,7 +179,8 @@
                             var productTable = $("#productTable tbody");
                             var newRow = $("<tr></tr>");
 
-                            newRow.append($("<td></td>").text(productId));
+                            newRow.append($("<td></td>").text(Row_ID));
+                            Row_ID++;
 
                            
 
@@ -214,7 +215,11 @@
 
                             $("#productNameTextbox").val("");
 
+                            $("#serialTextbox").val("");
+
                             $("#productNameTextbox").prop("disabled", true);
+
+                            $("#serialTextbox").prop("disabled", true);
 
                             $("#productDropdown").prop("disabled", true);
 
